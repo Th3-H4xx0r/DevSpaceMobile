@@ -1,0 +1,128 @@
+import 'package:flutter/material.dart';
+
+class MyProject extends StatefulWidget {
+  @override
+  _MyProjectState createState() => _MyProjectState();
+}
+
+class _MyProjectState extends State<MyProject> {
+  final List<String> name = <String>['John Doe'];
+  final List<String> job = <String>[
+    'UI/UX Developer',
+  ];
+
+  static const Opacity opacity = Opacity(opacity: 0.5);
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(17, 17, 17, 1),
+        body: ListView(
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+              },
+              child: Hero(
+                tag: 'Information',
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'John Doe l Procura',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ))
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(40),
+                          bottomRight: Radius.circular(40))),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Text(
+                'Ferrari is the best\nF1 Team',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 10),
+            ListTile(
+                        leading: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg'),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle),
+                        ),
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('John Doe',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('Ui/Ux Developer',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold))
+                          ],
+                        )),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Text(
+                'Description',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+              child: Text(
+                'An app that takes hackathon managent to a  new level adding support for many features such as blah and blah. This app is almost finished and we are in need of a marketer to help finish the app for us.',
+                style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
